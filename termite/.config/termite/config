@@ -1,5 +1,7 @@
 [options]
-font = Source Code Pro Regular 11
+# font = Source Code Pro Regular 11
+font = Space Mono for Powerline Regular 11
+
 [colors]
 # Base16 Dracula
 # Author: Mike Barkmin (http://github.com/mikebarkmin) based on Dracula Theme (http://github.com/dracula)
