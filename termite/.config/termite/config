@@ -1,6 +1,6 @@
 [options]
 # font = Source Code Pro Regular 11
-font = Space Mono for Powerline Regular 11
+font = Monospace Regular 11
 
 [colors]
 # Base16 Dracula

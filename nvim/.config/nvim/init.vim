@@ -13,7 +13,7 @@ Plug 'https://github.com/jiangmiao/auto-pairs'
 " Multiple cursors
 Plug 'https://github.com/terryma/vim-multiple-cursors'
 " Tab autocomplete
-Plug 'https://github.com/ervandew/supertab'
+" Plug 'https://github.com/ervandew/supertab'
 
 " A for switching between file and header
 Plug 'https://github.com/vim-scripts/a.vim'
@@ -30,10 +30,6 @@ Plug 'https://github.com/itchyny/vim-gitbranch'
 
 " Colorscheme
 Plug 'https://github.com/rafi/awesome-vim-colorschemes'
-
-" Deoplete
-Plug 'https://github.com/Shougo/deoplete.nvim'
-Plug 'https://github.com/Shougo/deoplete-clangx'
 
 " Vimtex support for tex documents
 Plug 'lervag/vimtex'
@@ -61,16 +57,22 @@ Plug 'https://github.com/kana/vim-textobj-line'
 Plug 'https://github.com/kana/vim-textobj-indent'
 " ---
 
-" -- LanguageClient_neovim
-" Language Client support[usually i install cquery]
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Clang Format
+Plug 'https://github.com/rhysd/vim-clang-format'
+
+" Rip Grep - find text in files
+Plug 'https://github.com/jremmen/vim-ripgrep'
+
 " Multi-entry selection UI. FZF
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 " ---
+
+" Git wrapper
+Plug 'https://github.com/tpope/vim-fugitive'
+
+" COC - language server protocol
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -120,42 +122,10 @@ nnoremap <silent> <Leader>+ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
 nnoremap <silent> <Leader>= <C-W>=
 
-" --- DEOPLETE
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-call deoplete#custom#source('LanguageClient',
-            \ 'min_pattern_length',
-            \ 2)
-" Deoplete for tex files
-call deoplete#custom#var('omni', 'input_patterns', {
-      \ 'tex': g:vimtex#re#deoplete
-      \})
-" ---
-
-" --- LanguageClient_neovim
-let g:LanguageClient_serverCommands = {
-    \ 'cpp': ['cquery', '--log-file=/tmp/cq.log'],
-    \ 'c': ['cquery', '--log-file=/tmp/cq.log'],
-    \ }
-
-let g:LanguageClient_loadSettings = 1 " Use an absolute configuration path if you want system-wide settings
-let g:LanguageClient_settingsPath = '~/.config/nvim/settings.json'
-set completefunc=LanguageClient#complete
-set formatexpr=LanguageClient_textDocument_rangeFormatting()
-
-nnoremap <silent> <leader>gh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <silent> <leader>gd :call LanguageClient#textDocument_definition()<CR>
-nnoremap <silent> <leader>gr :call LanguageClient#textDocument_references()<CR>
-nnoremap <silent> <leader>gs :call LanguageClient#textDocument_documentSymbol()<CR>
-nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
- nnoremap <silent> <leader>gdt :call LanguageClient#textDocument_definition({  'gotoCmd': 'tabedit',  })<CR>
- nnoremap <silent> <leader>gdv :call LanguageClient#textDocument_definition({  'gotoCmd': 'vs',  })<CR>
-" ---
-
 " --- FZF 
 " This is the default extra key bindings
 nnoremap <C-p> :Files<CR>
+nnoremap gs :BTags<CR>
 
 " In Neovim, you can set up fzf window using a Vim command
 let g:fzf_layout = { 'down': '~40%', 'window': '10new' }
@@ -176,8 +146,8 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'] }
 " ---
 
-" Supertab correct deoplete backward tabbing
-let g:SuperTabDefaultCompletionType = "<c-n>"
+" Supertab correct coc backward tabbing
+" let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Disable new line comment in vimrc
 au BufEnter * set fo-=c fo-=r fo-=o
@@ -232,6 +202,34 @@ let g:vimtex_view_general_viewer = 'evince'
 
 " This unsets the 'last search pattern' register by hitting return
 nnoremap <CR> :noh<CR><CR>
+
+" --- CoC - language server protocol
+
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" Close the preview window when completion is done.
+autocmd! CompleteDone * if pumvisible() == 0 | pclose | endif
+
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+" Remap keys for gotos
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> <leader>gdt :call CocAction('jumpDefinition', 'tab drop')<CR>
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+" Remap for rename current word
+nmap <leader>rn <Plug>(coc-rename)
+" ---
 
 " =============================================================================================
 "                                       PRETTY STUFF
