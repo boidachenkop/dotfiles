@@ -33,6 +33,8 @@ alias l='ls -a'
 
 #cd aliases
 alias cdpr='cd /home/pavlo/pr/'
+alias cdbr='cd /home/pavlo/Breas-iBridge/iBridge/'
+alias cdbrc='cd /home/pavlo/Breas-iBridge/iBridge/proj/ubuntu/'
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
