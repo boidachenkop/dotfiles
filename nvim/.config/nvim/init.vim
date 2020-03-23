@@ -74,6 +74,9 @@ Plug 'https://github.com/tpope/vim-fugitive'
 " COC - language server protocol
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" NERD tree - tree view 
+Plug 'preservim/nerdtree'
+
 call plug#end()
 
 " =============================================================================================
@@ -231,6 +234,9 @@ nnoremap <silent> K :call <SID>show_documentation()<CR>
 nmap <leader>rn <Plug>(coc-rename)
 " ---
 
+" NERD tree
+map <leader>n :NERDTreeToggle<CR>
+
 " =============================================================================================
 "                                       PRETTY STUFF
 " =============================================================================================
@@ -282,6 +288,7 @@ set guitablabel=%t
 set termguicolors
 syntax enable
 colorscheme dracula
+
 
 
 

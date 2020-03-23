@@ -260,6 +260,7 @@ bindsym $mod+shift+x $Locker && sleep 1
 assign [class="TelegramDesktop"] $workspace8
 assign [class="Skype"] $workspace8
 assign [class="Thunderbird"] $workspace8
+assign [class="Rocket.Chat"] $workspace8
 assign [class="Chromium"] $workspace9
 assign [class="Google-chrome"] $workspace9
 for_window [class="Spotify"] move to workspace $workspace10
@@ -276,9 +277,11 @@ exec --no-startup-id terminology # Terminator -> 1
 exec --no-startup-id spotify # Spotify -> 10
 exec --no-startup-id chromium # Chromium -> 9
 exec --no-startup-id google-chrome # Google Chrome ->  9
-exec --no-startup-id telegram # Telegram -> 8 
+exec --no-startup-id Telegram # Telegram -> 8 
 exec --no-startup-id skypeforlinux # Skype -> 8 
 exec --no-startup-id thunderbird # Thunderbird -> 8 
+exec --no-startup-id rocketchat-desktop # Rocket.Chat -> 8 
+
 # exec pulseaudio --start
 # exec /opt/urserver/urserver-start # Unified Remote
 #exec_always compton --config /home/pavlo/.config/compton/compton.conf

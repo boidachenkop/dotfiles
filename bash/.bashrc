@@ -35,6 +35,8 @@ alias l='ls -a'
 alias cdpr='cd /home/pavlo/pr/'
 alias cdbr='cd /home/pavlo/Breas-iBridge/iBridge/'
 alias cdbrc='cd /home/pavlo/Breas-iBridge/iBridge/proj/ubuntu/'
+alias cdiot='cd /home/pavlo/iot-hub/IoThub/'
+alias cdiotc='cd /home/pavlo/iot-hub/IoThub/proj/ubuntu/'
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -43,3 +45,5 @@ alias ls='ls --color=auto'
 PS1='[\u@\h \W]\$ '
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+
