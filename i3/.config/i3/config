@@ -127,12 +127,12 @@ bindsym $mod+Ctrl+r exec screengrab -r
 
 # workspace variables
 set $workspace1 "1: Terminals "
-set $workspace2 "2: Workspace "
-set $workspace3 "3: Workspace "
-set $workspace4 "4: Workspace "
-set $workspace5 "5: Workspace "
-set $workspace6 "6: Workspace "
-set $workspace7 "7: Workspace "
+set $workspace2 "2: Workspace "
+set $workspace3 "3: Workspace "
+set $workspace4 "4: Workspace "
+set $workspace5 "5: Workspace "
+set $workspace6 "6: Workspace "
+set $workspace7 "7: Joplin "
 # HOME:
 # set $workspace8 "8: Telegram "
 # WORK:
@@ -269,6 +269,7 @@ assign [class="Thunderbird"] $workspace8
 assign [class="Rocket.Chat"] $workspace8
 assign [class="Chromium"] $workspace9
 assign [class="Google-chrome"] $workspace9
+assign [class="Joplin"] $workspace7
 for_window [class="Spotify"] move to workspace $workspace10
 # enable floating by default
 for_window [class="Thunar"] floating enabled
@@ -278,6 +279,8 @@ for_window [class="Pavucontrol"] floating enabled
 for_window [class="Lxappearance"] floating enabled
 for_window [class="svm-app"] floating enabled
 for_window [class="Gnuplot"] floating enabled
+for_window [class="Blueberry.py"] floating enabled
+for_window [class="Nm-connection-editor"] floating enabled
 for_window [class="X-terminal-emulator"] focus
 
 exec --no-startup-id terminology # Terminator -> 1

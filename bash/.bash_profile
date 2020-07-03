@@ -10,3 +10,6 @@ fi
 
 # PATH edits
 PATH=$PATH:~/.programs/Telegram/
+
+# Created by `userpath` on 2020-06-26 09:16:30
+export PATH="$PATH:/home/pavlo/.local/bin"

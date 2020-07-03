@@ -34,6 +34,9 @@ Plug 'https://github.com/rafi/awesome-vim-colorschemes'
 " Vimtex support for tex documents
 Plug 'lervag/vimtex'
 
+" Allows vimtex to work properly
+Plug 'https://github.com/mhinz/neovim-remote'
+
 " A Vim Plugin for Lively Previewing LaTeX PDF Output
 Plug 'https://github.com/ying17zi/vim-live-latex-preview', {'for': 'tex'}
 
@@ -76,6 +79,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " NERD tree - tree view 
 Plug 'preservim/nerdtree'
+Plug 'https://github.com/Nopik/vim-nerdtree-direnter'
 
 call plug#end()
 
@@ -88,6 +92,8 @@ imap wj <esc>
 
 " Remap 'leader'
 let mapleader=","
+let maplocalleader = "\\"
+
 
 " Search case unsensetive
 set ignorecase
@@ -202,6 +208,9 @@ nmap <leader>gT <Plug>TitlecaseLine
 let g:livepreview_cursorhold_recompile = 0
 " Vimtex previewer
 let g:vimtex_view_general_viewer = 'evince'
+let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_quickfix_latexlog = {'default' : 0}
+
 
 " This unsets the 'last search pattern' register by hitting return
 nnoremap <CR> :noh<CR><CR>
@@ -236,6 +245,11 @@ nmap <leader>rn <Plug>(coc-rename)
 
 " NERD tree
 map <leader>n :NERDTreeToggle<CR>
+let NERDTreeMapOpenInTab='<ENTER>'
+
+" A plugin
+let g:alternateSearchPath = 'reg:/src/inc/g/,reg:/\.cpp/\.hpp/g/'
+" let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,wdr:./sources'
 
 " =============================================================================================
 "                                       PRETTY STUFF
