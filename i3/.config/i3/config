@@ -124,6 +124,9 @@ bindsym $mod+Ctrl+r exec screengrab -r
 # focus the child container
 #bindsym $mod+d focus child
 
+bindsym $mod+Ctrl+m exec /home/pavlo/dotfiles/i3/.config/i3/scripts/rename_workspace.sh
+bindsym $mod+Ctrl+d exec /home/pavlo/dotfiles/i3/.config/i3/scripts/restore_default_name.sh
+
 # workspace variables
 set $workspace1 "1: Terminals "
 set $workspace2 "2: Workspace "
@@ -140,28 +143,28 @@ set $workspace9 "9: Chromium "
 set $workspace10 "10: Spotify "
 
 # switch to workspace
-bindsym $mod+1 workspace $workspace1
-bindsym $mod+2 workspace $workspace2
-bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace $workspace4
-bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace $workspace6
-bindsym $mod+7 workspace $workspace7
-bindsym $mod+8 workspace $workspace8
-bindsym $mod+9 workspace $workspace9
-bindsym $mod+0 workspace $workspace10
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace $workspace1
-bindsym $mod+Shift+2 move container to workspace $workspace2
-bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace $workspace4
-bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace $workspace6
-bindsym $mod+Shift+7 move container to workspace $workspace7
-bindsym $mod+Shift+8 move container to workspace $workspace8
-bindsym $mod+Shift+9 move container to workspace $workspace9
-bindsym $mod+Shift+0 move container to workspace $workspace10
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
 
 
 # turn off computer
@@ -271,13 +274,15 @@ for_window [class="Pavucontrol"] floating enabled
 for_window [class="Lxappearance"] floating enabled
 for_window [class="svm-app"] floating enabled
 for_window [class="Gnuplot"] floating enabled
+for_window [class="Blueberry.py"] floating enabled
+for_window [class="matplotlib"] floating enabled
 for_window [class="X-terminal-emulator"] focus
 
 exec --no-startup-id terminology # Terminator -> 1
 exec --no-startup-id spotify # Spotify -> 10
 exec --no-startup-id chromium # Chromium -> 9
 exec --no-startup-id google-chrome # Google Chrome ->  9
-exec --no-startup-id Telegram # Telegram -> 8 
+exec --no-startup-id telegram-desktop # Telegram -> 8 
 exec --no-startup-id skypeforlinux # Skype -> 8 
 exec --no-startup-id thunderbird # Thunderbird -> 8 
 exec --no-startup-id rocketchat-desktop # Rocket.Chat -> 8 

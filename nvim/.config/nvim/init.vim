@@ -30,8 +30,10 @@ Plug 'https://github.com/itchyny/vim-gitbranch'
 
 " Colorscheme
 Plug 'https://github.com/rafi/awesome-vim-colorschemes'
+Plug 'patstockwell/vim-monokai-tasty'
+Plug 'https://github.com/dracula/vim'
 
-" Vimtex support for tex documents
+" Vimtex support for tex documents to start press \ll
 Plug 'lervag/vimtex'
 
 " A Vim Plugin for Lively Previewing LaTeX PDF Output
@@ -111,8 +113,8 @@ nnoremap  <leader>yy  "+yy
 
 " Spell check. F11 to turn on
 set spelllang=en,pl,cjk
-nnoremap <silent> <F11> :set spell!<cr>
-inoremap <silent> <F11> <C-O>:set spell!<cr>
+nnoremap <silent> <F10> :set spell!<cr>
+inoremap <silent> <F10> <C-O>:set spell!<cr>
 
 " Paste from clipboard
 nnoremap <leader>p "+p
@@ -200,8 +202,14 @@ nmap <leader>gT <Plug>TitlecaseLine
 
 " Latex preview prevent document update when cursor holds
 let g:livepreview_cursorhold_recompile = 0
+" suppress warnings 
+let g:tex_flavor = 'latex'
+let g:vimtex_quickfix_latexlog = {'default' : 0}
 " Vimtex previewer
 let g:vimtex_view_general_viewer = 'evince'
+let g:vimtex_quickfix_mode = 1
+let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_quickfix_autoclose_after_keystrokes = 2
 
 " This unsets the 'last search pattern' register by hitting return
 nnoremap <CR> :noh<CR><CR>
@@ -285,8 +293,10 @@ set showcmd
 set guitablabel=%t
 
 " Colorscheme
-set termguicolors
+set notermguicolors
 syntax enable
+let g:vim_monokai_tasty_italic = 1
+" colorscheme vim-monokai-tasty
 colorscheme dracula
 
 

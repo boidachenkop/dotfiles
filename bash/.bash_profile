@@ -10,3 +10,4 @@ fi
 
 # PATH edits
 PATH=$PATH:~/.programs/Telegram/
+export EDITOR=nvim
