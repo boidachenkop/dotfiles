@@ -11,7 +11,13 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'https://github.com/jiangmiao/auto-pairs'
 
 " Multiple cursors
+" C-n add new virtual cursor
+" C-x skip the next match
+" C-p remove current and go to previous
+" g<A-n> select all words (custom)
+" g<A-m> select all keys (custom)
 Plug 'https://github.com/terryma/vim-multiple-cursors'
+
 " Tab autocomplete
 " Plug 'https://github.com/ervandew/supertab'
 
@@ -72,7 +78,9 @@ Plug 'junegunn/fzf.vim'
 " ---
 
 " Git wrapper
-Plug 'https://github.com/tpope/vim-fugitive'
+" Plug 'https://github.com/tpope/vim-fugitive'
+" Git diff e.g
+Plug 'airblade/vim-gitgutter'
 
 " COC - language server protocol
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -80,6 +88,9 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " NERD tree - tree view 
 Plug 'preservim/nerdtree'
 Plug 'https://github.com/Nopik/vim-nerdtree-direnter'
+
+" File renamer
+Plug 'https://github.com/qpkorr/vim-renamer'
 
 call plug#end()
 
@@ -89,6 +100,8 @@ call plug#end()
 
 " Esc keymap
 imap wj <esc>
+cnoreabbrev W w
+cnoreabbrev qt tabclose
 
 " Remap 'leader'
 let mapleader=","
@@ -135,6 +148,10 @@ nnoremap <silent> <Leader>= <C-W>=
 " This is the default extra key bindings
 nnoremap <C-p> :Files<CR>
 nnoremap gs :BTags<CR>
+
+" Multiple cursors
+let g:multi_cursor_select_all_word_key = 'g<A-n>'
+let g:multi_cursor_select_all_key      = 'g<A-m>'
 
 " In Neovim, you can set up fzf window using a Vim command
 let g:fzf_layout = { 'down': '~40%', 'window': '10new' }
@@ -250,6 +267,9 @@ let NERDTreeMapOpenInTab='<ENTER>'
 " A plugin
 let g:alternateSearchPath = 'reg:/src/inc/g/,reg:/\.cpp/\.hpp/g/'
 " let g:alternateSearchPath = 'sfr:../source,sfr:../src,sfr:../include,sfr:../inc,wdr:./sources'
+
+" Gitgutter
+autocmd VimEnter * GitGutterDisable
 
 " =============================================================================================
 "                                       PRETTY STUFF

@@ -1,7 +1,9 @@
 [options]
-# font = Source Code Pro Regular 11
+ # font = Source Code Pro Regular 11
 font = Monospace Regular 11
-# font = Awesome Font 11
+# font = Monoisome Regular 12
+# font = Monoid Regular 11
+
 scrollback_lines = 50000
 mouse_autohide = true
 

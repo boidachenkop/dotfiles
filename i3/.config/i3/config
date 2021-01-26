@@ -132,7 +132,7 @@ set $workspace3 "3: Workspace "
 set $workspace4 "4: Workspace "
 set $workspace5 "5: Workspace "
 set $workspace6 "6: Workspace "
-set $workspace7 "7: Joplin "
+set $workspace7 "7: Management "
 # HOME:
 # set $workspace8 "8: Telegram "
 # WORK:
@@ -270,6 +270,8 @@ assign [class="Rocket.Chat"] $workspace8
 assign [class="Chromium"] $workspace9
 assign [class="Google-chrome"] $workspace9
 assign [class="Joplin"] $workspace7
+assign [class="Zenkit"] $workspace7
+assign [class="Bitwarden"] $workspace7
 for_window [class="Spotify"] move to workspace $workspace10
 # enable floating by default
 for_window [class="Thunar"] floating enabled
@@ -291,9 +293,12 @@ exec --no-startup-id Telegram # Telegram -> 8
 exec --no-startup-id skypeforlinux # Skype -> 8 
 exec --no-startup-id thunderbird # Thunderbird -> 8 
 exec --no-startup-id rocketchat-desktop # Rocket.Chat -> 8 
+# exec --no-startup-id zenkit # Zenkit -> 7
+exec --no-startup-id Bitwarden # Bitwarden -> 7
+exec --no-startup-id joplin # Zenkit -> 7
 
 # exec pulseaudio --start
 # exec /opt/urserver/urserver-start # Unified Remote
 # exec_always compton
-exec_always feh --bg-scale ~/.wallpapers/spacex.jpg # wallpaper
+exec_always feh --bg-scale ~/.wallpapers/reflection-polyscape-wallpaper-for-1920x1080-63-1085.jpg # wallpaper
 
